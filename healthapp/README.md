@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Welcome to (our health app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with the [MERN Stack](https://www.mongodb.com/mern-stack).
+
+## What is (our health app)
+
+This project was creat
 
 ## Available Scripts
 

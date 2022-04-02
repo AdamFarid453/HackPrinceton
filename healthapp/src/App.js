@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import Signin from "./Signin";
-import Signup from "./Signup";
-
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -11,13 +10,42 @@ function App() {
 
       <Router>
         <nav>
-          <li><Link to="/signin">Sign In</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
+          <li>
+            <Link to="/signin">Sign In</Link>
+          </li>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
         </nav>
         <Routes>
-          <Route exact path="/" element={<> <Signin /> </>} />
-          <Route path="/signin" element={<> <Signin /> </>} />
-          <Route path="/signup" element={<> <Signup /> </>} />
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                {" "}
+                <Signin />{" "}
+              </>
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <>
+                {" "}
+                <Signin />{" "}
+              </>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <>
+                {" "}
+                <Signup />{" "}
+              </>
+            }
+          />
         </Routes>
       </Router>
     </div>
