@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom"
@@ -16,6 +16,14 @@ const config = {
 
 const RequestInfo = () => {
     const { user } = useAuth0();
+    const [containers, setContainers] = useState(() => {
+        const savedContainers = localStorage.getItem("containerData")
+        if(savedContainers){
+            return JSON.parse(savedContainers)
+        } else {
+            return []
+        }
+    });
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("");
@@ -23,6 +31,8 @@ const RequestInfo = () => {
     const [body, setBody] = useState("");
     const [message, setMessage] = useState("");
     const { setContainerId } = useContext(ContainerContext);
+
+    useEffect(() =>  localStorage.setItem("containerData", JSON.stringify(containers)), [containers])
 
     const clickSubmit = async () => {
 
@@ -106,6 +116,19 @@ const RequestInfo = () => {
             url: `https://api.botdoc.io/v1/module_container/container/${containerId}/send_notification/`,
             headers: headers,
         });
+
+        /**
+         * saved container info to localstorage
+         */
+        setContainers([
+            ...containers,
+            {
+                containerId: containerId,
+                subject: subject,
+            }
+        ]);
+
+
         navigate("/retriveinfo")
     };
 

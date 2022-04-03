@@ -37,7 +37,7 @@ const ReceivedInfo = () => {
         try {
             // It doesn't matter whether this api responds with the Content-Disposition header or not
             const response = await axios.get(
-                `https://api.botdoc.io/v1/module_container_pushpull/${parseInt(mediaId)}/download/`,
+                `https://api.botdoc.io/v1/module_container_pushpull/media/${parseInt(mediaId)}/download/`,
                 {
                     responseType: "blob", // this is important!
                     headers: {
@@ -67,8 +67,8 @@ const ReceivedInfo = () => {
                 </h4>
             ) : (
                 <div className="flex flex-row justify-between items-center">
-                    <h4>{data.results[0].name}</h4>
-                    <button onClick={() => downloadAttachment(data.results[0].id, data.results[0].name)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2">
+                    <h4>{data?.results[0]?.name}</h4>
+                    <button onClick={() => downloadAttachment(data?.results[0]?.id, data?.results[0]?.name)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2">
                         Download
                     </button>
                 </div>
