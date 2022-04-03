@@ -5,16 +5,11 @@ import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import SigninButton from "./components/SigninButton";
 import SignoutButton from "./components/SignoutButton";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 
-import Home from "./Home";
-import Footer from "./Footer";
-import SigninButton from "./SigninButton";
-import SignoutButton from "./SignoutButton";
 import Profile from "./Profile";
-import Dashboard from "./Dashboard";
-// import Signin from "./Signin";
-import Signup from "./Signup";
+import Dashboard from "./components/Dashboard";
+//import Signup from "./Signup";
 import RequestInfo from "./RequestInfo";
 import ReceivedInfo from "./ReceivedInfo";
 
@@ -30,7 +25,7 @@ const AppBtn = ({ path = "/request", text }) => (
 function App() {
   return (
     <div className="h-screen bg-gradient-to-b from-gray-100 to-cyan-300">
-      <h1 className="text-2xl text-center mb-6">Perch / Hermes / DataHeart</h1>
+      <h1 className="text-2xl text-center mb-2">Hermes</h1>
       <nav>
         <ul className="list-none">
           <li className="inline-block mx-6">
@@ -111,7 +106,7 @@ function App() {
             element={
               <>
                 {" "}
-                <Signup />{" "}
+                <SigninButton />{" "}
               </>
             }
           />
