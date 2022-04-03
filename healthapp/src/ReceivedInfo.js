@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import Home from "./Home";
@@ -20,20 +19,20 @@ const ReceivedInfo = () => {
   const { isAuthenticated } = useAuth0();
   const [data, setData] = useState(null);
   // const { containerId } = useContext(ContainerContexst)
-  const { containerId } = useParams();
-
+  const saved = localStorage.getItem("containerId");
+  console.log(saved, "test");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     async function fetchInfo() {
       const resp = await axios.get(
-        `https://api.botdoc.io/v1/media/?request=${containerId}`,
+        `https://api.botdoc.io/v1/media/?request=${saved}`,
         config
       );
       setData(resp.data);
       console.log(resp);
     }
     fetchInfo();
-  }, [containerId]);
+  }, [saved]);
 
   console.log(data);
 
@@ -73,7 +72,9 @@ const ReceivedInfo = () => {
           </h4>
         ) : (
           <div className="flex flex-row justify-between items-center">
-            <h4>{data?.results[0]?.name}</h4>
+            <h4 class="text-sm text-gray-600 cursor-pointer">
+              {data?.results[0]?.name}
+            </h4>
             <button
               onClick={() =>
                 downloadAttachment(data?.results[0]?.id, data?.results[0]?.name)

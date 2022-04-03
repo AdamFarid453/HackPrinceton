@@ -5,7 +5,8 @@ import Home from "./Home";
 const Requests = () => {
   const { isAuthenticated } = useAuth0();
   const [data, setData] = useState(() => {
-    const savedContainers = localStorage.getItem("containerData");
+    const savedContainers = localStorage.getItem("containerID");
+    console.log(savedContainers);
     if (savedContainers) {
       return JSON.parse(savedContainers);
     } else {

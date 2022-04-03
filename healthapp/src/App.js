@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import SigninButton from "./components/SigninButton";
+import SignoutButton from "./components/SignoutButton";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
 import Profile from "./Profile";
 import Dashboard from "./components/Dashboard";
 //import Signup from "./Signup";
