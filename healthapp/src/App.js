@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Home from "./Home";
 import Footer from "./Footer";
@@ -27,12 +27,16 @@ function App() {
             <h1 className="text-2xl text-center mb-6">
                 Perch / Hermes / DataHeart
             </h1>
-            <nav>
-                <ul className="list-none">
-                    <li className="inline-block mx-6">
+            {/* <nav> */}
+                {/* <ul className="list-none"> */}
+                    {/* <li className="inline-block mx-6">
                         <button className="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">
                             Menu
                         </button>
+                    </li> */}
+                    {/* <li className="inline-block mx-6">
+                      <AppBtn path={"/home"} text="Home" />
+                      
                     </li>
                     <li className="inline-block mx-6">
                         <SigninButton />
@@ -49,15 +53,17 @@ function App() {
                         <AppBtn path={'/requests'} text="Requests List" />
                     </li>
                 </ul>
-            </nav>
+            </nav> */}
             <Router>
-                {/* <nav className="bg-blue-300">
+                <nav className="bg-blue-300">
                     <ul className="list-none inline-block">
                         <Link to="/home"><li className="inline-block bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2 mx-6">Home</li></Link>
-                        <Link to="/dashboard" ><li className="inline-block bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2 mx-6">Visit Dashboard</li></Link>
+                        <Link to="/request" ><li className="inline-block bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2 mx-6">Request Info</li></Link>
+                        <Link to="/retriveinfo/:containerId" ><li className="inline-block bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2 mx-6">Retrieve Info</li></Link>
+                        <Link to="/requests" ><li className="inline-block bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2 mx-6">Requests</li></Link>
                         <li className="inline-block mx-6"><SigninButton /><SignoutButton /><Profile /></li>
                     </ul>
-                </nav> */}
+                </nav>
                 <Routes>
                     <Route
                         exact

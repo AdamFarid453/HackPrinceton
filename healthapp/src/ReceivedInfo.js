@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
+import Home from "./Home";
 
 const token =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODksInVzZXJuYW1lIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJleHAiOjE2NDkyMzMwNTgsImVtYWlsIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJvcmlnX2lhdCI6MTY0ODk3Mzg1OCwidHdvX2ZhY3Rvcl9hdXRoZW50aWNhdGlvbl9hdXRob3JpemVkIjp0cnVlLCJzdWJzY3JpcHRpb24iOm51bGwsImtleV9pZCI6ImYyMDZiNjNhLTY4OWEtNDMyMS04MDdlLTk1MDFjZjk0ZDVlZSJ9.KuieEzQTVnWVGVHTDEOhxN-GCXfpnHIhozmMmXohNjU";
@@ -14,6 +17,7 @@ const config = {
 };
 
 const ReceivedInfo = () => {
+    const { isAuthenticated } = useAuth0();
     const [data, setData] = useState(null);
     // const { containerId } = useContext(ContainerContext)
     const { containerId } = useParams()
@@ -56,9 +60,9 @@ const ReceivedInfo = () => {
             setTimeout(() => window.URL.revokeObjectURL(url), 0); // this is important too, otherwise we will be unnecessarily spiking memory!
         } catch (e) { } //error handling }
     }
-
+    if (isAuthenticated) {
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
             <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
                 Received Information
             </h2>
@@ -76,6 +80,15 @@ const ReceivedInfo = () => {
             )}
         </section>
     );
+            }
+            else {
+                return (
+                    <div>
+                        <h1>Please Signin if you wish to view your dashboard...</h1>
+                        <Home />
+                    </div>
+                )
+            }
 };
 
 export default ReceivedInfo;

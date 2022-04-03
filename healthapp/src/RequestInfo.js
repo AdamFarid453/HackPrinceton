@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom"
 import { ContainerContext } from "./context";
+import Home from "./Home";
 
 const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODksInVzZXJuYW1lIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJleHAiOjE2NDkyMzMwNTgsImVtYWlsIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJvcmlnX2lhdCI6MTY0ODk3Mzg1OCwidHdvX2ZhY3Rvcl9hdXRoZW50aWNhdGlvbl9hdXRob3JpemVkIjp0cnVlLCJzdWJzY3JpcHRpb24iOm51bGwsImtleV9pZCI6ImYyMDZiNjNhLTY4OWEtNDMyMS04MDdlLTk1MDFjZjk0ZDVlZSJ9.KuieEzQTVnWVGVHTDEOhxN-GCXfpnHIhozmMmXohNjU"
 
@@ -15,7 +16,7 @@ const config = {
 };
 
 const RequestInfo = () => {
-    const { user } = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
     const [containers, setContainers] = useState(() => {
         const savedContainers = localStorage.getItem("containerData")
         if(savedContainers){
@@ -132,90 +133,101 @@ const RequestInfo = () => {
         navigate(`/recievedinfo/${containerId}`)
     };
 
-    return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-            <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
-                Request Information
-            </h2>
+    if (isAuthenticated) {
+        return (
+            <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
+                <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+                    Request Information
+                </h2>
 
-            <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                <div>
-                    <label
-                        className="text-gray-700 dark:text-gray-200"
-                        htmlFor="username"
-                    >
-                        Email Address of Recipient
-                    </label>
-                    <input
-                        id="username"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="ryan@gmail.com"
-                        type="text"
-                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                    />
+                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                    <div>
+                        <label
+                            className="text-gray-700 dark:text-gray-200"
+                            htmlFor="username"
+                        >
+                            Email Address of Recipient
+                        </label>
+                        <input
+                            id="username"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="ryan@gmail.com"
+                            type="text"
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                        />
+                    </div>
+
+                    <div>
+                        <label
+                            className="text-gray-700 dark:text-gray-200"
+                            htmlFor="emailAddress"
+                        >
+                            Subject of Request
+                        </label>
+                        <input
+                            id="emailAddress"
+                            value={subject}
+                            onChange={(e) => setSubject(e.target.value)}
+                            placeholder="Subject"
+                            type="email"
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                        />
+                    </div>
+
+                    <div>
+                        <label
+                            className="text-gray-700 dark:text-gray-200"
+                            htmlFor="password"
+                        >
+                            Description of request
+                        </label>
+                        <input
+                            id="body"
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                            type="text"
+                            placeholder="Description of request ..."
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                        />
+                    </div>
+
+                    <div>
+                        <label
+                            className="text-gray-700 dark:text-gray-200"
+                            htmlFor="passwordConfirmation"
+                        >
+                            Private Notes of Request
+                        </label>
+                        <input
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="Type something ..."
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                        />
+                    </div>
                 </div>
 
-                <div>
-                    <label
-                        className="text-gray-700 dark:text-gray-200"
-                        htmlFor="emailAddress"
+                <div className="flex justify-center mt-6">
+                    <button
+                        onClick={clickSubmit}
+                        className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                     >
-                        Subject of Request
-                    </label>
-                    <input
-                        id="emailAddress"
-                        value={subject}
-                        onChange={(e) => setSubject(e.target.value)}
-                        placeholder="Subject"
-                        type="email"
-                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                    />
+                        Request
+                    </button>
                 </div>
+            </section>
+        )
 
-                <div>
-                    <label
-                        className="text-gray-700 dark:text-gray-200"
-                        htmlFor="password"
-                    >
-                        Description of request
-                    </label>
-                    <input
-                        id="body"
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                        type="text"
-                        placeholder="Description of request ..."
-                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                    />
-                </div>
-
-                <div>
-                    <label
-                        className="text-gray-700 dark:text-gray-200"
-                        htmlFor="passwordConfirmation"
-                    >
-                        Private Notes of Request
-                    </label>
-                    <input
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Type something ..."
-                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                    />
-                </div>
+    } else {
+        return (
+            <div>
+                <h1>Please Signin if you wish to view your dashboard...</h1>
+                <Home />
             </div>
+    )
+    }
 
-            <div className="flex justify-center mt-6">
-                <button
-                    onClick={clickSubmit}
-                    className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-                >
-                    Request
-                </button>
-            </div>
-        </section>
-    );
-};
+}
 
 export default RequestInfo;

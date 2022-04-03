@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import Home from "./Home";
 
 const Requests = () => {
+    const { isAuthenticated } = useAuth0();
     const [data, setData] = useState(() => {
         const savedContainers = localStorage.getItem("containerData");
         if (savedContainers) {
@@ -10,8 +13,9 @@ const Requests = () => {
         }
     });
 
+    if (isAuthenticated) {
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
             <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
                 All Requests
             </h2>
@@ -36,6 +40,14 @@ const Requests = () => {
             )}
         </section>
     );
+    } else {
+        return (
+            <div>
+                <h1>Please Signin if you wish to view your dashboard...</h1>
+                <Home />
+            </div>
+        )
+    }
 };
 
 export default Requests;
