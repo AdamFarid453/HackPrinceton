@@ -1,6 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { ReactComponent as Icon } from "./images/iconLoader.svg";
-import { ReactComponent as Hamburger } from "./images/hamburger.svg";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import SigninButton from "./components/SigninButton";
@@ -12,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 //import Signup from "./Signup";
 import RequestInfo from "./RequestInfo";
 import ReceivedInfo from "./ReceivedInfo";
+import Requests from "./Requests";
 
 const AppBtn = ({ path = "/request", text }) => (
   <a
@@ -25,7 +24,7 @@ const AppBtn = ({ path = "/request", text }) => (
 function App() {
   return (
     <div className="h-screen bg-gradient-to-b from-gray-100 to-cyan-300">
-      <h1 className="text-2xl text-center mb-2">Hermes</h1>
+      <h1 className="text-2xl text-center mb-6">Perch / Hermes / DataHeart</h1>
       <nav>
         <ul className="list-none">
           <li className="inline-block mx-6">
@@ -43,6 +42,9 @@ function App() {
           </li>
           <li className="inline-block mx-6">
             <AppBtn path={"/retriveinfo"} text="RetrieveInfo" />
+          </li>
+          <li className="inline-block mx-6">
+            <AppBtn path={"/requests"} text="Requests List" />
           </li>
         </ul>
       </nav>
@@ -93,11 +95,20 @@ function App() {
             }
           />
           <Route
-            path="/retriveinfo"
+            path="/retriveinfo/:containerId"
             element={
               <>
                 {" "}
                 <ReceivedInfo />{" "}
+              </>
+            }
+          />
+          <Route
+            path="/requests"
+            element={
+              <>
+                {" "}
+                <Requests />{" "}
               </>
             }
           />
