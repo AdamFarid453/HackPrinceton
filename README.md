@@ -8,3 +8,5 @@ So many people around the world are fatally injured and require admission to mul
 This web app was built using the React.Js framework with html/css/javascript. Authentication is verified through Auth0 and in the backend, the patient's health data is encrypted with botdoc.io
 
 ## [Read more about it here!](https://devpost.com/software/hermes-uokf0g?ref_content=user-portfolio&ref_feature=in_progress)
+
+All built in less than 24 hours! 🎉
