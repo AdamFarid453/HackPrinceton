@@ -10,7 +10,7 @@ function App() {
   
 
   return (
-    <div class="bg-blue-100">
+    <div class="h-screen bg-gradient-to-b from-gray-100 to-cyan-300">
       <h1 class="text-2xl text-center mb-6" >Perch / Hermes / DataHeart</h1>
       <nav>
         <ul class="list-none">
