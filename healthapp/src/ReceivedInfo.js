@@ -16,13 +16,14 @@ const config = {
 const ReceivedInfo = () => {
   const [data, setData] = useState(null);
   // const { containerId } = useContext(ContainerContext)
-  const { containerId } = useParams();
+  const containerId = "1493119";
+  console.log(containerId, typeof containerId);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     async function fetchInfo() {
       const resp = await axios.get(
-        `https://api.botdoc.io/v1/media/?request=${parseInt(containerId)}`,
+        `https://api.botdoc.io/v1/media/?request=${containerId}`,
         config
       );
       setData(resp.data);
