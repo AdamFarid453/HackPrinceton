@@ -1,0 +1,10 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="600 70 50 520" width="50" height="50">
+	<title>New Project</title>
+	<style>
+		.s0 { fill: none;stroke: #000000;stroke-width: 25 } 
+		.s1 { fill: #c4c4c4 } 
+	</style>
+	<ellipse id="Layer" class="s0" cx="640" cy="360" rx="216" ry="201"/>
+	<ellipse id="Layer" class="s1" cx="644.6" cy="328.7" rx="50.6" ry="49.1"/>
+	<path id="Layer" class="s1" d="m644.6 351.1l67.7 107.2h-135.4z"/>
+</svg>
