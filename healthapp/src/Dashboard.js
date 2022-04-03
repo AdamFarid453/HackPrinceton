@@ -21,7 +21,7 @@ const Dashboard = () => {
 
                 <div>
                 <div class="flex items-center justify-center mt-8 mb-8">
-                <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-sky-400 rounded cursor-pointer hover:bg-sky-400">Import Patient Data from Hospital Portal</a>
+                <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-purple-600 rounded cursor-pointer hover:bg-purple-600">Import Patient Data from Hospital Portal</a>
                 </div>
                 </div>
 
@@ -63,8 +63,8 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div class="flex justify-end mt-6">
-                <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+            <div class="flex justify-end mt-6 mr-8">
+                <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-purple-600 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">Send</button>
             </div>
         </form>
     </section>
