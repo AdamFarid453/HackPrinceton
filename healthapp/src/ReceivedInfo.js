@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { ContainerContext } from "./context";
 
 const token =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODksInVzZXJuYW1lIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJleHAiOjE2NDkyMzMwNTgsImVtYWlsIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJvcmlnX2lhdCI6MTY0ODk3Mzg1OCwidHdvX2ZhY3Rvcl9hdXRoZW50aWNhdGlvbl9hdXRob3JpemVkIjp0cnVlLCJzdWJzY3JpcHRpb24iOm51bGwsImtleV9pZCI6ImYyMDZiNjNhLTY4OWEtNDMyMS04MDdlLTk1MDFjZjk0ZDVlZSJ9.KuieEzQTVnWVGVHTDEOhxN-GCXfpnHIhozmMmXohNjU";
@@ -69,7 +68,6 @@ const ReceivedInfo = () => {
             ) : (
                 <div className="flex flex-row justify-between items-center">
                     <h4>{data.results[0].name}</h4>
-                    <img src={data.results[0].file} width={20} height={20} alt={"hola"} />
                     <button onClick={() => downloadAttachment(data.results[0].id, data.results[0].name)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2">
                         Download
                     </button>
