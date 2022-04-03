@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom"
 
 const token =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODksInVzZXJuYW1lIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJleHAiOjE2NDkyMzMwNTgsImVtYWlsIjoiZ2l0b25nYXZpbmNlbnQ2NEBnbWFpbC5jb20iLCJvcmlnX2lhdCI6MTY0ODk3Mzg1OCwidHdvX2ZhY3Rvcl9hdXRoZW50aWNhdGlvbl9hdXRob3JpemVkIjp0cnVlLCJzdWJzY3JpcHRpb24iOm51bGwsImtleV9pZCI6ImYyMDZiNjNhLTY4OWEtNDMyMS04MDdlLTk1MDFjZjk0ZDVlZSJ9.KuieEzQTVnWVGVHTDEOhxN-GCXfpnHIhozmMmXohNjU";
@@ -15,7 +16,7 @@ const config = {
 const ReceivedInfo = () => {
     const [data, setData] = useState(null);
     // const { containerId } = useContext(ContainerContext)
-    const containerId = JSON.parse(localStorage.getItem("containerId"));
+    const { containerId } = useParams()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {

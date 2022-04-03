@@ -129,7 +129,7 @@ const RequestInfo = () => {
         ]);
 
 
-        navigate("/retriveinfo")
+        navigate(`/recievedinfo/${containerId}`)
     };
 
     return (

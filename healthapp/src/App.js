@@ -10,6 +10,7 @@ import Dashboard from "./Dashboard";
 import Signup from "./Signup";
 import RequestInfo from "./RequestInfo";
 import ReceivedInfo from "./ReceivedInfo";
+import Requests from "./Requests";
 
 const AppBtn = ({ path="/request", text }) => (
     <a
@@ -43,6 +44,9 @@ function App() {
                     </li>
                     <li className="inline-block mx-6">
                         <AppBtn path={'/retriveinfo'} text="RetrieveInfo" />
+                    </li>
+                    <li className="inline-block mx-6">
+                        <AppBtn path={'/requests'} text="Requests List" />
                     </li>
                 </ul>
             </nav>
@@ -89,10 +93,16 @@ function App() {
                                 <RequestInfo />{" "}
                             </>
                         } />
-                    <Route path="/retriveinfo" element={
+                    <Route path="/retriveinfo/:containerId" element={
                             <>
                                 {" "}
                                 <ReceivedInfo />{" "}
+                            </>
+                        } />
+                    <Route path="/requests" element={
+                            <>
+                                {" "}
+                                <Requests />{" "}
                             </>
                         } />
                     <Route
