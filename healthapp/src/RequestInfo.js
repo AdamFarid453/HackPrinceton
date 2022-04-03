@@ -64,9 +64,9 @@ const RequestInfo = () => {
         console.log(resp1.data) */
 
     const containerId = resp1.data.id;
-    console.log(containerId, "this is the container id", typeof containerId);
     setContainerId(containerId);
     localStorage.setItem("containerId", JSON.stringify(containerId));
+    console.log(containerId, "this is the container id", typeof containerId);
 
     // create recipient
     const data1 = {
