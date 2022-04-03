@@ -26,6 +26,7 @@ const ReceivedInfo = () => {
         config
       );
       setData(resp.data);
+      console.log(resp);
     }
     fetchInfo();
   }, [containerId]);

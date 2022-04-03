@@ -121,6 +121,15 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/retriveinfo"
+            element={
+              <>
+                {" "}
+                <ReceivedInfo />{" "}
+              </>
+            }
+          />
         </Routes>
       </Router>
       <Footer />
