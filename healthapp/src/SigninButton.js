@@ -6,7 +6,7 @@ const SigninButton = () => {
 
   return (
     !isAuthenticated && (
-    <button onClick={() => loginWithRedirect()} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">
+    <button onClick={() => loginWithRedirect()} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2">
       Sign In
     </button>
     )
