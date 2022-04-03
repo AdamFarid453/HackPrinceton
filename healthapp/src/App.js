@@ -11,10 +11,14 @@ function App() {
   
 
   return (
-    <div class="bg-blue-100">
-      <div class="bg-blue-300">
-        <h1 class="text-3xl text-center font-bold" >Hermes</h1>
-      </div>
+    <div class="h-screen bg-gradient-to-b from-gray-100 to-cyan-300">
+      <h1 class="text-2xl text-center mb-6" >Perch / Hermes / DataHeart</h1>
+      <nav>
+        <ul class="list-none">
+          <li class="inline-block mx-6"><button class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">Menu</button></li>
+          <li class="inline-block mx-6"><SigninButton /><SignoutButton /><Profile /></li>
+        </ul>
+      </nav>
       <Router>
         <nav class="bg-blue-300">
           <ul class="list-none inline-block">
