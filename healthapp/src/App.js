@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Landing from "./Landing";
+import Transfer from "./Transfer";
+import Dashboard from "./Dashboard";
 import Footer from "./Footer";
 import SigninButton from "./SigninButton";
 import SignoutButton from "./SignoutButton";
@@ -22,6 +24,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<> <Landing /> </>} />
           <Route path="/landing" element={<> <Landing /> </>} />
+          <Route path="/dashboard" element={<> <Dashboard /> </>} />
         </Routes>
       </Router>
       <Footer />

@@ -19,6 +19,8 @@ const Landing = () => {
       
       <div class="flex items-center justify-center mt-8 mb-8">
       <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-sky-400 rounded cursor-pointer hover:bg-sky-400">Transfer</a>
+      <Link to="/dashboard">Dashboard</Link>
+       
       </div>
       </div>
       <div class="max-w-2xl px-8 py-4 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800 ">
