@@ -9,10 +9,8 @@ import Profile from "./Profile";
 
 function App() {
   return (
-    <div class="h-screen bg-gradient-to-b from-gray-100 to-blue-300">
-      <Icon class="cursor-pointer" />
-      <Hamburger class="cursor-pointer mt-4" />
-      <h1 class="text-2xl text-center mb-6">Hermes</h1>
+    <div class="h-screen bg-gradient-to-b from-gray-100 to-cyan-300">
+      <h1 class="text-2xl text-center mb-6">Perch / Hermes / DataHeart</h1>
       <nav>
         <ul class="list-none position">
           <li class="inline-block mx-6">
