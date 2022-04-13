@@ -9,6 +9,8 @@ This web app was built using the React.Js framework with html/css/javascript. Au
 
 ## 🏆 Awards
 🏆 Best use of BotDoc at HackPrinceton2022
+
 🏆 Best use of Auth0 at HackPrinceton2022
+
 [Read more about it here!](https://devpost.com/software/hermes-uokf0g?ref_content=user-portfolio&ref_feature=in_progress)
 All built in less than 24 hours! 🎉
